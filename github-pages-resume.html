@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Anaya - Computer Science Student at UC Irvine">
+    <title>Anaya - Resume</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        
+        /* Header Section */
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+        
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: opacity 0.3s;
+        }
+        
+        .contact-info a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+        
+        /* Main Content */
+        .content {
+            padding: 40px;
+        }
+        
+        .section {
+            margin-bottom: 35px;
+        }
+        
+        .section-title {
+            color: #667eea;
+            font-size: 1.4em;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* Education Section */
+        .education-item {
+            margin-bottom: 15px;
+        }
+        
+        .education-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            margin-bottom: 5px;
+        }
+        
+        .degree {
+            font-weight: 600;
+            color: #333;
+            font-size: 1.1em;
+        }
+        
+        .date {
+            color: #666;
+            font-style: italic;
+            font-size: 0.9em;
+        }
+        
+        .institution {
+            color: #764ba2;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+        
+        .details {
+            color: #555;
+            margin-left: 15px;
+        }
+        
+        /* Skills Section - Grid Layout */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        
+        .skill-category {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .skill-category h3 {
+            color: #667eea;
+            font-size: 0.95em;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .skill-category p {
+            color: #555;
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+        
+        /* Experience Items */
+        .experience-item, .project-item, .course-item {
+            margin-bottom: 25px;
+        }
+        
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            margin-bottom: 8px;
+        }
+        
+        .position {
+            font-weight: 600;
+            color: #333;
+            font-size: 1.05em;
+        }
+        
+        .company {
+            color: #764ba2;
+            font-weight: 500;
+        }
+        
+        .tech-stack {
+            color: #667eea;
+            font-style: italic;
+            font-size: 0.9em;
+            margin-bottom: 8px;
+        }
+        
+        ul {
+            margin-left: 20px;
+            margin-top: 8px;
+        }
+        
+        li {
+            color: #555;
+            margin-bottom: 5px;
+            line-height: 1.5;
+        }
+        
+        /* Coursework - Compact Layout */
+        .course-grid {
+            display: grid;
+            gap: 15px;
+        }
+        
+        .course-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        
+        .course-title {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        
+        .course-details {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 5px;
+        }
+        
+        .course-description {
+            color: #555;
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+        
+        .subsection-title {
+            color: #764ba2;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+        
+        /* Languages */
+        .languages {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+        }
+        
+        .language-item {
+            background: #f8f9fa;
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .language-name {
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .language-level {
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .container {
+                box-shadow: none;
+                max-width: 100%;
+            }
+            
+            .header {
+                background: #667eea;
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                padding: 20px;
+            }
+            
+            .header {
+                padding: 30px 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .item-header {
+                flex-direction: column;
+            }
+            
+            .date {
+                margin-top: 5px;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>ANAYA</h1>
+            <div class="contact-info">
+                <a href="https://github.com/your-username" target="_blank" rel="noopener noreferrer">
+                    🔗 github.com/your-username
+                </a>
+                <a href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener noreferrer">
+                    🔗 linkedin.com/in/your-profile
+                </a>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="content">
+            <!-- Education -->
+            <div class="section">
+                <h2 class="section-title">Education</h2>
+                <div class="education-item">
+                    <div class="education-header">
+                        <div>
+                            <div class="degree">Bachelor of Science in Computer Science</div>
+                            <div class="institution">University of California, Irvine</div>
+                        </div>
+                        <div class="date">September 2023 – June 2026</div>
+                    </div>
+                    <div class="details">
+                        Specialization in Intelligent Systems | Minor in Psychology (in progress)
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Technical Skills -->
+            <div class="section">
+                <h2 class="section-title">Technical Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Programming Languages</h3>
+                        <p>Python, C++, C, Java, SQL, Swift</p>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Web Development</h3>
+                        <p>HTML, CSS, Flask, REST APIs</p>
+                    </div>
+                    <div class="skill-category">
+                        <h3>AI/ML Frameworks</h3>
+                        <p>PyTorch, TensorFlow, NumPy</p>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Tools & Design</h3>
+                        <p>Git, Figma, Dialogflow, JWT</p>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Specializations</h3>
+                        <p>UI/UX Design, HCI, Cybersecurity, Operating Systems, Networking</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Projects -->
+            <div class="section">
+                <h2 class="section-title">Projects</h2>
+                <div class="project-item">
+                    <div class="item-header">
+                        <div class="position">Book-Bazar – E-commerce Platform for Books</div>
+                    </div>
+                    <div class="tech-stack">Python • Flask • HTML/CSS • SQLite</div>
+                    <ul>
+                        <li>Developed full-stack e-commerce web application for buying and selling books</li>
+                        <li>Implemented user authentication, product catalog, and shopping cart functionality</li>
+                        <li>Designed and integrated SQLite database for managing inventory, users, and transactions</li>
+                        <li>Created responsive front-end interface using HTML/CSS for optimal user experience</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Experience -->
+            <div class="section">
+                <h2 class="section-title">Experience & Leadership</h2>
+                
+                <div class="experience-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="position">Instructional Design Assistant</div>
+                            <div class="company">School of Social Ecology, UC Irvine</div>
+                        </div>
+                        <div class="date">[Start Date] – Present</div>
+                    </div>
+                    <ul>
+                        <li>Support compliance initiatives and course development for School of Social Ecology</li>
+                        <li>Assist in designing instructional materials and ensuring educational quality standards</li>
+                        <li>Collaborate with faculty to enhance curriculum delivery and student learning outcomes</li>
+                    </ul>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="position">Board Member & Workshop Facilitator</div>
+                            <div class="company">AI for All (AIFA), UC Irvine</div>
+                        </div>
+                        <div class="date">September 2024 – Present</div>
+                    </div>
+                    <ul>
+                        <li>Lead workshops on AI fundamentals and practical tools for diverse student audiences</li>
+                        <li>Promote ethical AI practices and human-centered design principles</li>
+                        <li>Develop educational content to make AI accessible to students from all backgrounds</li>
+                    </ul>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="position">Member</div>
+                            <div class="company">By Any Means (BAM), UC Irvine</div>
+                        </div>
+                        <div class="date">September 2023 – Present</div>
+                    </div>
+                    <ul>
+                        <li>Participate in community service initiatives and collaborative projects</li>
+                        <li>Engage with diverse groups to foster inclusive campus environment</li>
+                    </ul>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="position">Team Representative</div>
+                            <div class="company">Supros Internship Program</div>
+                        </div>
+                        <div class="date">July – September 2022</div>
+                    </div>
+                    <ul>
+                        <li>Represented 6-member team in cross-functional communications</li>
+                        <li>Coordinated project timelines and deliverables to ensure team success</li>
+                        <li>Facilitated collaboration and knowledge sharing among team members</li>
+                    </ul>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="position">Participant</div>
+                            <div class="company">Immerse Education – Computer Science Online Insights (Oxford & Cambridge)</div>
+                        </div>
+                        <div class="date">December 2021 – January 2022</div>
+                    </div>
+                    <ul>
+                        <li>Completed intensive program in machine learning and AI fundamentals</li>
+                        <li>Gained hands-on experience with Python, PyTorch, and TensorFlow</li>
+                        <li>Collaborated with international peers in structured academic setting</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Relevant Coursework -->
+            <div class="section">
+                <h2 class="section-title">Relevant Coursework & Certifications</h2>
+                
+                <h3 class="subsection-title">University Courses</h3>
+                <div class="course-grid">
+                    <div class="course-item">
+                        <div class="course-title">COMPSCI 177: Applications of Probability in Computer Science</div>
+                        <div class="course-details">UC Irvine, 2025</div>
+                        <div class="course-description">Algorithm analysis, probabilistic language models, network traffic modeling, data compression, reliability modeling</div>
+                    </div>
+                    
+                    <div class="course-item">
+                        <div class="course-title">COMPSCI 171: Introduction to Artificial Intelligence</div>
+                        <div class="course-details">UC Irvine, 2025</div>
+                        <div class="course-description">Knowledge representation, heuristic problem-solving, logic, semantic networks, search strategies</div>
+                    </div>
+                    
+                    <div class="course-item">
+                        <div class="course-title">IN4MATX 131: Human-Computer Interaction</div>
+                        <div class="course-details">UC Irvine, 2024</div>
+                        <div class="course-description">UI design principles, usability testing, interface evaluation</div>
+                    </div>
+                    
+                    <div class="course-item">
+                        <div class="course-title">Research Discovery Program</div>
+                        <div class="course-details">UC Irvine, 2024</div>
+                        <div class="course-description">Undergraduate research mentorship and academic preparation</div>
+                    </div>
+                </div>
+                
+                <h3 class="subsection-title" style="margin-top: 25px;">Professional Certifications</h3>
+                <div class="course-grid">
+                    <div class="course-item">
+                        <div class="course-title">REST APIs with Flask and Python</div>
+                        <div class="course-details">2025</div>
+                        <div class="course-description">REST API development, authentication systems, JWT implementation, database migrations, token refresh mechanisms, API security, performance optimization with task queues and background workers</div>
+                    </div>
+                    
+                    <div class="course-item">
+                        <div class="course-title">Mathematics for Machine Learning: Linear Algebra</div>
+                        <div class="course-details">Coursera, Imperial College London</div>
+                        <div class="course-description">Vectors, matrices, eigenvalues, eigenvectors with Python applications in data analysis and machine learning</div>
+                    </div>
+                    
+                    <div class="course-item">
+                        <div class="course-title">AI for Everyone</div>
+                        <div class="course-details">Coursera, Andrew Ng (February 2024)</div>
+                        <div class="course-description">Machine learning workflows, data science project management</div>
+                    </div>
+                    
+                    <div class="course-item">
+                        <div class="course-title">The Absolute Beginner's Guide to Cybersecurity (Parts 1 & 2)</div>
+                        <div class="course-details">Udemy, Alexander Oni (November 2022 – January 2023)</div>
+                        <div class="course-description">Cybersecurity fundamentals, malware, networking, VPNs, encryption, email security</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Languages -->
+            <div class="section">
+                <h2 class="section-title">Languages</h2>
+                <div class="languages">
+                    <div class="language-item">
+                        <div class="language-name">English</div>
+                        <div class="language-level">Fluent</div>
+                    </div>
+                    <div class="language-item">
+                        <div class="language-name">Hindi</div>
+                        <div class="language-level">Fluent</div>
+                    </div>
+                    <div class="language-item">
+                        <div class="language-name">Marathi</div>
+                        <div class="language-level">Fluent</div>
+                    </div>
+                    <div class="language-item">
+                        <div class="language-name">French</div>
+                        <div class="language-level">Intermediate (B1)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
